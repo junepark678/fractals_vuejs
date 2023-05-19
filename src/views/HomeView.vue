@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <h1>Fractals!</h1>
+    <input type="number" v-model="depth" max="5" min="1" />
+    <br />
+    <FractalCanvas :depth="depth" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-});
+<script lang="ts" setup>
+import FractalCanvas from "@/components/FractalCanvas.vue";
+import { ref } from "vue";
+let depth = ref(2);
 </script>
+
+<style lang="scss">
+input {
+  margin: 2rem !important;
+}
+</style>
